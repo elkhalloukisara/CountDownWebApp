@@ -4,7 +4,7 @@ This project is an illustrative part of a CS lecture aimed at the students of th
 
 #The Count Down WebApp
 
-An java exmaple webapp project illustrating the combined use of : 
+A java example webapp project illustrating the combined use of : 
 
 - maven
 - eclipse
