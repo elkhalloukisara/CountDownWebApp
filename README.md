@@ -11,4 +11,3 @@ A java example webapp project illustrating the combined use of :
 - git
 
 
-
