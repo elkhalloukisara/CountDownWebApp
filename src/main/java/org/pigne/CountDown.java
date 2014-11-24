@@ -41,7 +41,7 @@ public class CountDown extends HttpServlet {
 		long diffHours = diff / (60 * 60 * 1000) % 24;
 		long diffDays = diff / (24 * 60 * 60 * 1000);
 		return diffDays + " jour(s) " + diffHours + " heure(s) " + diffMinutes
-				+ " minute(s) " + diffSeconds + " seconde(s).....";
+				+ " minute(s) " + diffSeconds + " seconde(s)...";
 
 	}
 }
