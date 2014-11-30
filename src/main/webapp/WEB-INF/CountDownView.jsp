@@ -27,7 +27,7 @@
 	avant la fin de ce cours ! &raquo;
 	<footer>
 	<% 
-            String parametre = request.getParameter( "author" );
+            String parametre = (String) request.getAttribute( "author" );
             out.println( parametre );
             //http://localhost:8080/CountDownWebApp/countdown?author=Yoann
 	%>
