@@ -7,11 +7,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.hamcrest.CoreMatchers;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pigne.DateUtils.DateUtilsParseException;
 
-public class DateUtilsTests {
+public class DateUtilsUnitTest {
 
 	String format1 = "dd/MM/yyyy HH:mm:ss";
 	String format2 = "yyyy-MM-dd HH:mm";
@@ -22,12 +23,12 @@ public class DateUtilsTests {
 	String to1 = "01/12/2014 12:30:00";
 	String to2 = "2014-12-01 12:30";
 
-	static Date beforeNow;
-	static Date afterNow;
-	static Date now;
+	Date beforeNow;
+	Date afterNow;
+	Date now;
 
-	@BeforeClass
-	public static void init() {
+	@Before
+	public  void init() {
 		Calendar cal = Calendar.getInstance();
 		now = cal.getTime();
 		cal.add(Calendar.HOUR, -1);
@@ -97,8 +98,7 @@ public class DateUtilsTests {
 		assertEquals(0, diff.getDays());
 		assertEquals(1, diff.getHours());
 		assertEquals(0, diff.getMinutes());
-		// we don't test with seconds since the current time might have
-		// changed...
+		assertEquals(0, diff.getSeconds()); // seconds could differ
 	}
 
 	@Test
@@ -117,11 +117,12 @@ public class DateUtilsTests {
 
 	@Test
 	public void testDifferenceFormNowObject() {
+		
 		DateUtils.DHMS diff = DateUtils.differenceFromNow(afterNow);
 		assertEquals(0, diff.getDays());
 		assertEquals(1, diff.getHours());
 		assertEquals(1, diff.getMinutes());
-		//assertEquals(1, diff.getSeconds()); // we don"t test seconds as they could differ
+		assertEquals(1, diff.getSeconds()); // seconds  could differ
 		
 	}
 
