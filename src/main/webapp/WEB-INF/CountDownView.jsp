@@ -19,16 +19,16 @@
 
 <body>
 	<blockquote>
-	&laquo; Il reste 
+	&laquo;
 	<% 
             String diff = (String) request.getAttribute("diff");
             out.println( diff );
 	%>
-	avant la fin de ce cours ! &raquo;
+	 left before the end of this lecture! &raquo;
 	<footer>
 	<% 
-            String parametre = (String) request.getAttribute( "author" );
-            out.println( parametre );
+            String parametre =  request.getParameter( "author" );
+            out.println( parametre!=null?parametre:"Nobody" );
             //http://localhost:8080/CountDownWebApp/countdown?author=Yoann
 	%>
 	</footer>

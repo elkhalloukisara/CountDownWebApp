@@ -11,12 +11,13 @@ public class CountDown extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String diff = "O_o";
 		try {
-			request.setAttribute("diff", DateUtils.differenceToNow("dd/MM/yyyy HH:mm:ss", "01/12/2014 12:30:00"));
+			 diff = DateUtils.differenceFromNow("dd/MM/yyyy HH:mm:ss", "01/12/2014 12:30:00");
 		} catch (DateUtils.DateUtilsParseException e){
 			throw new ServletException(e);
 		}
-		request.setAttribute("author", "Yoann");
+		request.setAttribute("diff", diff);
 		this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/CountDownView.jsp")
 				.forward(request, response);
