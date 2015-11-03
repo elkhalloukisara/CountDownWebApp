@@ -28,23 +28,21 @@ public class SimpleIntegrationTest {
 		baseUrl = "http://localhost:9090/CountDownWebApp/countdown";
 		driver = new HtmlUnitDriver();
 		//driver = new FirefoxDriver();
-		// screenshotHelper = new ScreenshotHelper();
+		screenshotHelper = new ScreenshotHelper();
 	}
 
 	@Test
 	public void testPage() {
 
 		driver.get(baseUrl);
-		//System.out.println(driver.getPageSource());
+		System.out.println(driver.getPageSource());
 
 		try {
 			// Find the title of the page
-			WebElement element = driver.findElement(By.tagName("title"));
-			assertNotNull(element);
-			assertEquals("CountDown", element.getText().trim());
-			
+			assertEquals("CountDown", driver.getTitle());
+
 			// Find the footer that should contain "Nobody"
-			element = driver.findElement(By.tagName("footer"));
+			WebElement element = driver.findElement(By.tagName("footer"));
 			assertNotNull(element);
 			assertEquals("Nobody", element.getText().trim());
 
@@ -58,7 +56,8 @@ public class SimpleIntegrationTest {
 	public void testAuthorParameter() {
 
 		driver.get(baseUrl + "?author=Me");
-		//System.out.println(driver.getPageSource());
+		System.out.println(driver.getPageSource());
+		System.out.println("Page title is: " + driver.getTitle());
 
 		try {
 
@@ -75,7 +74,7 @@ public class SimpleIntegrationTest {
 
 	@After
 	public void saveScreenshotAndCloseBrowser() throws IOException {
-		// screenshotHelper.saveScreenshot("screenshot.png");
+		//screenshotHelper.saveScreenshot("screenshot-"+System.nanoTime()+".png");
 		driver.quit();
 	}
 
