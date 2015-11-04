@@ -13,7 +13,7 @@ public class CountDown extends HttpServlet {
 			throws ServletException, IOException {
 		String diff = "O_o";
 		try {
-			 diff = DateUtils.differenceFromNow("dd/MM/yyyy HH:mm:ss", "01/12/2014 12:30:00");
+			 diff = DateUtils.differenceFromNow("dd/MM/yyyy HH:mm:ss", "04/11/2015 17:30:00");
 		} catch (DateUtils.DateUtilsParseException e){
 			throw new ServletException(e);
 		}
